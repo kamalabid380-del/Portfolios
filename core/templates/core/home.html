@@ -50,7 +50,7 @@
   {% if skills %}
   <ul class="mt-10 flex flex-wrap gap-2 text-[10px] tracking-widest" aria-label="Skills" data-reveal style="--d: 360ms">
     {% for s in skills %}
-    <li class="border border-gray-300 px-3 py-1">{{ s.name|upper }}</li>
+    <li class="skill-tag border border-gray-300 px-3 py-1">{{ s.name|upper }}</li>
     {% endfor %}
   </ul>
   {% endif %}
