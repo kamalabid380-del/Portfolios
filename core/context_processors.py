@@ -6,6 +6,10 @@ from .models import Profile
 
 def profile(request):
     try:
-        return {'profile': Profile.objects.filter(is_active=True).last()}
+        prof = Profile.objects.filter(is_active=True).last()
     except (OperationalError, ProgrammingError):
-        return {'profile': None}
+        prof = None
+    return {
+        'profile': prof,
+        'nav_name': prof.name.upper() if prof else 'PORTFOLIO',
+    }
