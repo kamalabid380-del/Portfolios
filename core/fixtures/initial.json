@@ -1,0 +1,57 @@
+[
+{
+  "model": "core.profile",
+  "pk": 1,
+  "fields": {
+    "name": "Abid Kamal Khan",
+    "role": "Web Developer python Django",
+    "location": "Lahore, Pakistan",
+    "email": "abidkamal336@gmail.com",
+    "bio": "I build clean, fast websites and web apps with Python and Django. I handle everything from database models to the final page, with search-friendly markup built in.",
+    "avatar": "",
+    "github": "https://github.com/",
+    "linkedin": "",
+    "is_active": true
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 1,
+  "fields": {
+    "name": "Python",
+    "order": 3
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 2,
+  "fields": {
+    "name": "Django",
+    "order": 4
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 3,
+  "fields": {
+    "name": "HTML / CSS",
+    "order": 1
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 4,
+  "fields": {
+    "name": "JavaScript",
+    "order": 2
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 5,
+  "fields": {
+    "name": "SQLite / PostgreSQL",
+    "order": 5
+  }
+}
+]

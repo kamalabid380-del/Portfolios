@@ -1,0 +1,3 @@
+# Django templates: Prettier's HTML formatter splits {{ }} / {% %} tags across
+# lines, which Django then renders as literal text. Keep it out of templates.
+*.html

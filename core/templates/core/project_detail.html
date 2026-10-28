@@ -1,0 +1,80 @@
+{% extends "core/base.html" %}
+
+{% block title %}{{ project.title }} — {{ profile.name|default:"Portfolio" }}{% endblock %}
+{% block description %}{{ project.summary }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ project.title }} — {{ profile.name|default:"Portfolio" }}{% endblock %}
+{% block og_description %}{{ project.summary }}{% endblock %}
+{% block og_image %}{% if project.cover %}<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{{ project.cover.url }}">{% endif %}{% endblock %}
+
+{% block head %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "{{ project.title|escapejs }}",
+    "description": "{{ project.summary|escapejs }}",
+    "url": "{{ request.scheme }}://{{ request.get_host }}{{ project.get_absolute_url }}",
+    "dateCreated": "{{ project.year }}",
+    "creator": {
+      "@type": "Person",
+      "name": "{{ profile.name|default:"Freelance Developer"|escapejs }}"
+    },
+    "keywords": "{{ project.tech|escapejs }}"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'home' %}" },
+      { "@type": "ListItem", "position": 2, "name": "Work", "item": "{{ request.scheme }}://{{ request.get_host }}{% url 'work' %}" },
+      { "@type": "ListItem", "position": 3, "name": "{{ project.title|escapejs }}" }
+    ]
+  }
+  </script>
+{% endblock %}
+
+{% block content %}
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 pt-8 sm:pt-12 pb-20 sm:pb-24">
+    <nav aria-label="Breadcrumb" class="text-[10px] tracking-[0.15em] sm:tracking-[0.2em] text-gray-400 flex flex-wrap items-center gap-x-2 gap-y-1" data-reveal>
+      <a href="{% url 'home' %}">HOME</a> <span>/</span>
+      <a href="{% url 'work' %}">WORK</a> <span>/</span>
+      <span class="text-gray-600 truncate max-w-full">{{ project.title|upper }}</span>
+    </nav>
+
+    <header class="mt-8 sm:mt-10" data-reveal style="--d: 80ms">
+      <p class="text-[11px] tracking-[0.3em] text-gray-400">CASE STUDY · {{ project.year }}</p>
+      <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-light leading-tight break-words">{{ project.title }}</h1>
+      <p class="mt-4 max-w-2xl text-base sm:text-lg text-gray-500 leading-relaxed break-words">{{ project.summary }}</p>
+      {% if project.tech %}
+        <p class="mt-5 text-[10px] tracking-[0.2em] text-gray-400 break-words">{{ project.tech|upper }}</p>
+      {% endif %}
+    </header>
+
+    {% if project.cover %}
+      <div class="mt-8 sm:mt-10 bg-gray-100" data-reveal style="--d: 160ms">
+        <img src="{{ project.cover.url }}" alt="{{ project.title }} — {{ project.summary }}"
+             class="w-full h-auto" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    {% endif %}
+
+    <div class="mt-8 sm:mt-10 max-w-2xl text-gray-700 leading-relaxed space-y-4 break-words [overflow-wrap:anywhere]" data-reveal style="--d: 200ms">
+      {{ project.description|linebreaks }}
+    </div>
+
+    {% if project.link %}
+      <a href="{{ project.link }}" target="_blank" rel="noopener"
+         class="mt-8 sm:mt-10 flex sm:inline-flex justify-center bg-gray-900 text-white text-[11px] tracking-[0.2em] px-6 py-4 sm:py-3 arrow-move"
+         data-reveal style="--d: 240ms">
+        VIEW LIVE PROJECT <span>→</span>
+      </a>
+    {% endif %}
+
+    <div class="mt-12 sm:mt-16 border-t border-gray-200 pt-8 flex justify-between gap-4 text-xs" data-reveal>
+      <a href="{% url 'work' %}" class="underline">← All work</a>
+      <a href="{% url 'contact' %}" class="underline">Start a project</a>
+    </div>
+  </article>
+{% endblock %}
