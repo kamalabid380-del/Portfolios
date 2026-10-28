@@ -1,3 +1,6 @@
+import re
+
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
@@ -12,8 +15,17 @@ def home(request):
 
 
 def work(request):
+    skill = request.GET.get('skill', '').strip()
+    projects = Project.objects.all()
+    tokens = [t for t in re.split(r'[^A-Za-z0-9+#.]+', skill) if t]
+    if tokens:
+        match = Q()
+        for token in tokens:
+            match |= Q(tech__icontains=token)
+        projects = projects.filter(match)
     return render(request, 'core/work.html', {
-        'projects': Project.objects.all(),
+        'projects': projects,
+        'active_skill': skill,
     })
 
 
