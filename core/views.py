@@ -38,9 +38,10 @@ def contact(request):
     if request.method == 'POST':
         name = request.POST.get('name', '').strip()
         email = request.POST.get('email', '').strip()
+        phone = request.POST.get('phone', '').strip()
         message = request.POST.get('message', '').strip()
         if name and email and message:
-            ContactMessage.objects.create(name=name, email=email, message=message)
+            ContactMessage.objects.create(name=name, email=email, phone=phone, message=message)
             return redirect('contact_sent')
     return render(request, 'core/contact.html', {'sent': False})
 

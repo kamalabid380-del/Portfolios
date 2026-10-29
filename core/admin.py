@@ -26,5 +26,5 @@ class SkillAdmin(admin.ModelAdmin):
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'created_at']
-    readonly_fields = ['name', 'email', 'message', 'created_at']
+    list_display = ['name', 'email', 'phone', 'created_at']
+    readonly_fields = ['name', 'email', 'phone', 'message', 'created_at']
