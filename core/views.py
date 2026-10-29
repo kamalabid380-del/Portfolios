@@ -1,10 +1,41 @@
+import logging
 import re
 
+from django.conf import settings
+from django.core.mail import EmailMessage
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import ContactMessage, Project, Skill
+from .models import ContactMessage, Profile, Project, Skill
+
+logger = logging.getLogger(__name__)
+
+
+def notify_owner(msg):
+    profile = Profile.objects.filter(is_active=True).last()
+    recipient = (profile.email if profile else '') or settings.CONTACT_EMAIL
+    if not recipient:
+        return
+    safe_name = ' '.join(msg.name.split())[:80]
+    body = (
+        f"New enquiry from {safe_name}\n\n"
+        f"Name: {msg.name}\n"
+        f"Email: {msg.email}\n"
+        f"Phone: {msg.phone or 'not given'}\n\n"
+        f"{msg.message}\n"
+    )
+    try:
+        mail = EmailMessage(
+            f"Portfolio enquiry from {safe_name}",
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [recipient],
+            reply_to=[msg.email.strip()],
+        )
+        mail.send(fail_silently=False)
+    except Exception:
+        logger.exception('Contact notification email failed')
 
 
 def home(request):
@@ -41,7 +72,10 @@ def contact(request):
         phone = request.POST.get('phone', '').strip()
         message = request.POST.get('message', '').strip()
         if name and email and message:
-            ContactMessage.objects.create(name=name, email=email, phone=phone, message=message)
+            msg = ContactMessage.objects.create(
+                name=name, email=email, phone=phone, message=message,
+            )
+            notify_owner(msg)
             return redirect('contact_sent')
     return render(request, 'core/contact.html', {'sent': False})
 
