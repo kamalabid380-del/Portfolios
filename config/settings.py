@@ -3,6 +3,20 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+def _load_env(path):
+    if not path.exists():
+        return
+    for line in path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, _, value = line.partition('=')
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+_load_env(BASE_DIR / '.env')
+
 SECRET_KEY = os.environ.get(
     'DJANGO_SECRET_KEY',
     '0k$oyps=a-x)!a(hkr78z)wla&z51*!4n_9m(=s706)b^f3^u+',
@@ -80,19 +94,22 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-EMAIL_BACKEND = os.environ.get(
-    'EMAIL_BACKEND',
-    'django.core.mail.backends.console.EmailBackend'
-    if DEBUG else
-    'django.core.mail.backends.smtp.EmailBackend',
-)
 EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.environ.get('EMAIL_PORT', '587'))
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', '1') == '1'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '').replace(' ', '')
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER or 'noreply@localhost')
 CONTACT_EMAIL = os.environ.get('CONTACT_EMAIL', '')
+
+if EMAIL_HOST_USER and EMAIL_HOST_PASSWORD:
+    default_email_backend = 'django.core.mail.backends.smtp.EmailBackend'
+elif DEBUG:
+    default_email_backend = 'django.core.mail.backends.console.EmailBackend'
+else:
+    default_email_backend = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND', default_email_backend)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
