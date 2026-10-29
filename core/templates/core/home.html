@@ -14,6 +14,7 @@
     "description": "{{ profile.bio|truncatechars:200|escapejs }}",
     "url": "{{ request.scheme }}://{{ request.get_host }}{% url 'home' %}",
     "email": "mailto:{{ profile.email|escapejs }}",
+    {% if profile.whatsapp %}"telephone": "{{ profile.whatsapp|escapejs }}",{% endif %}
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "{{ profile.location|escapejs }}"

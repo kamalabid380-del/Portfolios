@@ -8,6 +8,11 @@ class Profile(models.Model):
     role = models.CharField(max_length=150, default="Python & Django Web Developer")
     location = models.CharField(max_length=100, default="Lahore, Pakistan")
     email = models.EmailField()
+    whatsapp = models.CharField(
+        max_length=30,
+        blank=True,
+        help_text="Shown in the footer with a WhatsApp link, e.g. +92 308 5198908",
+    )
     bio = models.TextField(help_text="2-3 short paragraphs. Plain text.")
     avatar = models.ImageField(upload_to='profile/', blank=True, null=True)
     github = models.URLField(blank=True)
@@ -20,6 +25,11 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def whatsapp_link(self):
+        number = ''.join(ch for ch in self.whatsapp if ch.isdigit())
+        return f"https://wa.me/{number}" if number else ''
 
 
 class Skill(models.Model):

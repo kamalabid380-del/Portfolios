@@ -186,6 +186,12 @@
         <a href="mailto:{{ profile.email }}" class="mt-3 inline-block text-base sm:text-xl font-light break-all">
           {{ profile.email }}
         </a>
+        {% if profile.whatsapp %}
+        <a href="{{ profile.whatsapp_link }}" rel="noopener" target="_blank"
+          class="mt-3 block text-[11px] tracking-[0.2em] text-gray-500 link-underline">
+          WHATSAPP {{ profile.whatsapp }}
+        </a>
+        {% endif %}
         {% else %}
         <p class="mt-3 text-sm text-gray-400">Add your profile in /admin/</p>
         {% endif %}

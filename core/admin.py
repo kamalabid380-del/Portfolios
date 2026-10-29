@@ -8,7 +8,7 @@ admin.site.unregister(Group)
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['name', 'role', 'email', 'is_active']
+    list_display = ['name', 'role', 'email', 'whatsapp', 'is_active']
 
 
 @admin.register(Project)
