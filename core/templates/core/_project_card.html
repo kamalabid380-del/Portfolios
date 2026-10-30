@@ -1,7 +1,7 @@
 <article class="group card-lift" data-reveal>
   <a href="{{ project.get_absolute_url }}" class="block zoom-box bg-gray-100 aspect-[4/3]">
     {% if project.cover %}
-      <img src="{{ project.cover.url }}" alt="{{ project.title }} — {{ project.summary }}"
+      <img src="{{ project.cover_card_url }}" alt="{{ project.title }} — {{ project.summary }}"
            class="w-full h-full object-cover" loading="lazy" decoding="async">
     {% else %}
       <div class="w-full h-full flex items-center justify-center text-[10px] text-gray-400">NO IMAGE</div>

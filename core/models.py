@@ -1,3 +1,6 @@
+from pathlib import Path
+
+from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
@@ -74,6 +77,15 @@ class Project(models.Model):
 
     def get_absolute_url(self):
         return reverse('project_detail', kwargs={'slug': self.slug})
+
+    @property
+    def cover_card_url(self):
+        if not self.cover:
+            return ''
+        rel = f"projects/opt/{Path(self.cover.name).stem}.webp"
+        if (settings.MEDIA_ROOT / rel).exists():
+            return f"{settings.MEDIA_URL}{rel}"
+        return self.cover.url
 
 
 class ContactMessage(models.Model):
