@@ -17,6 +17,8 @@ class Profile(models.Model):
     avatar = models.ImageField(upload_to='profile/', blank=True, null=True)
     github = models.URLField(blank=True)
     linkedin = models.URLField(blank=True)
+    facebook = models.URLField(blank=True)
+    youtube = models.URLField(blank=True)
     is_active = models.BooleanField(default=True)
 
     class Meta:
@@ -30,6 +32,10 @@ class Profile(models.Model):
     def whatsapp_link(self):
         number = ''.join(ch for ch in self.whatsapp if ch.isdigit())
         return f"https://wa.me/{number}" if number else ''
+
+    @property
+    def social_urls(self):
+        return [u for u in (self.github, self.linkedin, self.facebook, self.youtube) if u]
 
 
 class Skill(models.Model):

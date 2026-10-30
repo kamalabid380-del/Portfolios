@@ -19,7 +19,9 @@
       "@type": "PostalAddress",
       "addressLocality": "{{ profile.location|escapejs }}"
     },
-    {% if profile.github %}"sameAs": ["{{ profile.github|escapejs }}"{% if profile.linkedin %}, "{{ profile.linkedin|escapejs }}"{% endif %}],{% endif %}
+    {% if profile.social_urls %}"sameAs": [
+      {% for u in profile.social_urls %}"{{ u|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}
+    ],{% endif %}
     "knowsAbout": [{% for s in skills %}"{{ s.name|escapejs }}"{% if not forloop.last %}, {% endif %}{% endfor %}]
   }
   </script>
