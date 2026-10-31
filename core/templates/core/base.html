@@ -203,6 +203,8 @@
       <div class="text-xs text-gray-500 md:text-right space-y-2">
         <p>{{ profile.location|default:"Lahore, Pakistan" }}</p>
         <p class="flex gap-3 md:justify-end">
+          <a href="https://www.instagram.com/auracad.studio/" target="_blank" rel="noopener"
+            class="underline">Instagram</a>
           {% if profile and profile.github %}<a href="{{ profile.github }}" target="_blank" rel="noopener"
             class="underline">GitHub</a>{% endif %}
           {% if profile and profile.linkedin %}<a href="{{ profile.linkedin }}" target="_blank" rel="noopener"
