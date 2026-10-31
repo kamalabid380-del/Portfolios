@@ -203,13 +203,13 @@
       <div class="text-xs text-gray-500 md:text-right space-y-2">
         <p>{{ profile.location|default:"Lahore, Pakistan" }}</p>
         <p class="flex gap-3 md:justify-end">
-          {% if profile and profile.github %}<a href="{{ profile.github }}" rel="noopener"
+          {% if profile and profile.github %}<a href="{{ profile.github }}" target="_blank" rel="noopener"
             class="underline">GitHub</a>{% endif %}
-          {% if profile and profile.linkedin %}<a href="{{ profile.linkedin }}" rel="noopener"
+          {% if profile and profile.linkedin %}<a href="{{ profile.linkedin }}" target="_blank" rel="noopener"
             class="underline">LinkedIn</a>{% endif %}
-          {% if profile and profile.facebook %}<a href="{{ profile.facebook }}" rel="noopener"
+          {% if profile and profile.facebook %}<a href="{{ profile.facebook }}" target="_blank" rel="noopener"
             class="underline">Facebook</a>{% endif %}
-          {% if profile and profile.youtube %}<a href="{{ profile.youtube }}" rel="noopener"
+          {% if profile and profile.youtube %}<a href="{{ profile.youtube }}" target="_blank" rel="noopener"
             class="underline">YouTube</a>{% endif %}
         </p>
         <p>© {% now "Y" %} {{ profile.name|default:"Portfolio" }}</p>
