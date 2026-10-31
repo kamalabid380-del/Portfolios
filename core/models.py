@@ -88,6 +88,14 @@ class Project(models.Model):
         return self.cover.url
 
 
+class HitCount(models.Model):
+    path = models.CharField(max_length=200, unique=True, default='total')
+    count = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.path}: {self.count}"
+
+
 class ContactMessage(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
