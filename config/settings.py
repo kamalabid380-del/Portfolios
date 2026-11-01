@@ -63,7 +63,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'core.context_processors.profile',
-                'core.context_processors.hit_count',
+                'core.context_processors.header_navs',
             ],
         },
     },
