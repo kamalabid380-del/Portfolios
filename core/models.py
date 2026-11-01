@@ -108,3 +108,15 @@ class ContactMessage(models.Model):
 
     def __str__(self):
         return f"{self.name} — {self.email}"
+
+class HeaderNav(models.Model):
+    title = models.CharField(max_length=50) # e.g. WORK, CONTACT, BLOG
+    url = models.CharField(max_length=200) # e.g. #work, #contact, /blog/
+    order = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering = ['order']

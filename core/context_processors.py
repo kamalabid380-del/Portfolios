@@ -21,3 +21,13 @@ def hit_count(request):
     except (OperationalError, ProgrammingError):
         total = 0
     return {'hit_count': total}
+
+
+def header_navs(request):
+    try:
+        navs = HeaderNav.objects.filter(is_active=True).order_by('order')
+    except:
+        navs = []
+    return {
+        'header_navs': navs
+    }

@@ -1,25 +1,13 @@
 from django.contrib import admin
-from .models import Profile, Projects, Skills, ContactMessages
+from django.apps import apps
 
-@admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('NAME', 'ROLE', 'EMAIL', 'IS_ACTIVE')
-    list_filter = ('IS_ACTIVE',)
+# Ye code CORE app ke saare models ko auto admin me le aayega
+# Chahe naam Project ho ya Projects, Skill ho ya Skills - sab aa jayenge
 
-@admin.register(Projects)
-class ProjectsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'created_at')
-    search_fields = ('title',)
+app = apps.get_app_config('core')
 
-@admin.register(Skills)
-class SkillsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'level')
-
-admin.site.site_header = "Abid Kamal Admin"
-admin.site.site_title = "Portfolio Admin"
-admin.site.index_title = "Welcome to Your Portfolio Dashboard"
-
-@admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'is_published')
-    prepopulated_fields = {'slug': ('title',)}
+for model in app.get_models():
+    try:
+        admin.site.register(model)
+    except admin.sites.AlreadyRegistered:
+        pass

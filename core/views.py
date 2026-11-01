@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import ContactMessage, Profile, Project, Skill
+from .models import HeaderNav, Profile, Project, Skill # etc
 
 logger = logging.getLogger(__name__)
 
