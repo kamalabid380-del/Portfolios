@@ -19,13 +19,7 @@ admin.site.site_header = "Abid Kamal Admin"
 admin.site.site_title = "Portfolio Admin"
 admin.site.index_title = "Welcome to Your Portfolio Dashboard"
 
-class Blog(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-    content = models.TextField()
-    image = models.ImageField(upload_to='blog/', blank=True, null=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    is_published = models.BooleanField(default=True)
-
-    def __str__(self):
-        return self.title
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at', 'is_published')
+    prepopulated_fields = {'slug': ('title',)}
