@@ -2,8 +2,6 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 def _load_env(path):
     if not path.exists():
         return
@@ -118,3 +116,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 if not DEBUG:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
+ALLOWED_HOSTS = ['abidkamal.com', 'www.abidkamal.com', '127.0.0.1']
