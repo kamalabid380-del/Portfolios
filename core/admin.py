@@ -1,30 +1,20 @@
 from django.contrib import admin
-from django.contrib.auth.models import Group
-
-from .models import ContactMessage, Profile, Project, Skill
-
-admin.site.unregister(Group)
-
+from .models import Profile, Projects, Skills, ContactMessages
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['name', 'role', 'email', 'whatsapp', 'is_active']
+    list_display = ('NAME', 'ROLE', 'EMAIL', 'IS_ACTIVE')
+    list_filter = ('IS_ACTIVE',)
 
+@admin.register(Projects)
+class ProjectsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'created_at')
+    search_fields = ('title',)
 
-@admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
-    list_display = ['title', 'year', 'tech', 'is_featured', 'order']
-    list_editable = ['is_featured', 'order']
-    prepopulated_fields = {'slug': ('title',)}
+@admin.register(Skills)
+class SkillsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'level')
 
-
-@admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
-    list_display = ['name', 'order']
-    list_editable = ['order']
-
-
-@admin.register(ContactMessage)
-class ContactMessageAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email', 'phone', 'created_at']
-    readonly_fields = ['name', 'email', 'phone', 'message', 'created_at']
+admin.site.site_header = "Abid Kamal Admin"
+admin.site.site_title = "Portfolio Admin"
+admin.site.index_title = "Welcome to Your Portfolio Dashboard"
