@@ -165,16 +165,9 @@
 <body class="bg-white text-gray-900 page-enter">
 
   <header class="border-b border-gray-200">
-    <nav aria-label="Main"
-      class="max-w-5xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center gap-4 text-[10px] sm:text-[11px] tracking-[0.15em] sm:tracking-[0.25em]">
-      <a href="{% url 'home' %}" class="font-medium truncate max-w-[55%]">
-        {{ nav_name }}
-      </a>
-      <div class="flex gap-4 sm:gap-6 shrink-0">
-        <a href="{% url 'work' %}" class="link-underline whitespace-nowrap">WORK</a>
-        <a href="{% url 'contact' %}" class="link-underline whitespace-nowrap">CONTACT</a>
-      </div>
-    </nav>
+    {% for nav in header_navs %}
+    <a href="{{ nav.url }}">{{ nav.title }}</a>
+    {% endfor %}
   </header>
 
   <main>
@@ -203,18 +196,14 @@
       <div class="text-xs text-gray-500 md:text-right space-y-2">
         <p>{{ profile.location|default:"Lahore, Pakistan" }}</p>
         <p class="flex gap-3 md:justify-end">
-          <a href="https://www.instagram.com/auracad.studio/" target="_blank" rel="noopener"
-            class="underline">Instagram</a>
-          {% if profile and profile.github %}<a href="{{ profile.github }}" target="_blank" rel="noopener"
+          {% if profile and profile.github %}<a href="{{ profile.github }}" rel="noopener"
             class="underline">GitHub</a>{% endif %}
-          {% if profile and profile.linkedin %}<a href="{{ profile.linkedin }}" target="_blank" rel="noopener"
+          {% if profile and profile.linkedin %}<a href="{{ profile.linkedin }}" rel="noopener"
             class="underline">LinkedIn</a>{% endif %}
-          {% if profile and profile.facebook %}<a href="{{ profile.facebook }}" target="_blank" rel="noopener"
+          {% if profile and profile.facebook %}<a href="{{ profile.facebook }}" rel="noopener"
             class="underline">Facebook</a>{% endif %}
-          {% if profile and profile.youtube %}<a href="{{ profile.youtube }}" target="_blank" rel="noopener"
+          {% if profile and profile.youtube %}<a href="{{ profile.youtube }}" rel="noopener"
             class="underline">YouTube</a>{% endif %}
-          {% if profile and profile.instagram %}<a href="{{ profile.instagram }}" target="_blank" rel="noopener"
-            class="underline">Instagram</a>{% endif %}
         </p>
         <p>© {% now "Y" %} {{ profile.name|default:"Portfolio" }}</p>
         <p class="tracking-[0.2em]">VISITORS {{ hit_count }}</p>
@@ -224,8 +213,7 @@
 
   <button type="button" id="back-to-top" aria-label="Back to top" title="Back to top"
     class="fixed z-40 bottom-5 right-5 sm:bottom-8 sm:right-8 w-11 h-11 rounded-full border border-gray-300 bg-white/90 text-gray-900 shadow-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-gray-900 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-gray-900">
-    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-      class="w-4 h-4">
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4">
       <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
   </button>
