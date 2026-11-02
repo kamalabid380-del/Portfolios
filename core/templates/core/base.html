@@ -165,9 +165,11 @@
 <body class="bg-white text-gray-900 page-enter">
 
   <header class="border-b border-gray-200">
-    {% for nav in header_navs %}
-    <a href="{{ nav.url }}">{{ nav.title }}</a>
-    {% endfor %}
+    <nav>
+      {% for nav in header_navs %}
+      <a href="{{ nav.url }}">{{ nav.title }}</a>
+      {% endfor %}
+    </nav>
   </header>
 
   <main>
