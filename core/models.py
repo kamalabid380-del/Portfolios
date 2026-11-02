@@ -110,8 +110,8 @@ class ContactMessage(models.Model):
         return f"{self.name} — {self.email}"
 
 class HeaderNav(models.Model):
-    title = models.CharField(max_length=50) # e.g. WORK, CONTACT, BLOG
-    url = models.CharField(max_length=200) # e.g. #work, #contact, /blog/
+    title = models.CharField(max_length=100)
+    url = models.CharField(max_length=200, help_text="e.g. /work/ or #contact")
     order = models.IntegerField(default=0)
     is_active = models.BooleanField(default=True)
 

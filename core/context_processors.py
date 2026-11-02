@@ -1,7 +1,7 @@
 from django.db import ProgrammingError
 from django.db.utils import OperationalError
 
-from .models import HitCount, Profile
+from .models import HitCount, Profile, HeaderNav
 
 
 def profile(request):
@@ -24,10 +24,5 @@ def hit_count(request):
 
 
 def header_navs(request):
-    try:
-        navs = HeaderNav.objects.filter(is_active=True).order_by('order')
-    except:
-        navs = []
-    return {
-        'header_navs': navs
-    }
+    navs = HeaderNav.objects.filter(is_active=True).order_by('order')
+    return {'header_navs': navs}
