@@ -159,8 +159,11 @@
       }
     }
   </style>
+  
   <script>document.documentElement.className += ' js';</script>
   {% block head %}{% endblock %}
+  {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body class="bg-white text-gray-900 page-enter">
