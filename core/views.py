@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import ContactMessage, Profile, Project, Skill
+from .models import HeaderNav, Profile, Project, Skill # etc
 
 logger = logging.getLogger(__name__)
 
@@ -89,4 +89,12 @@ def robots(request):
     return HttpResponse(
         f"User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: {sitemap_url}\n",
         content_type='text/plain',
+    )
+
+def blogs(request):
+    return render(request, 'blogs.html'
+    )
+
+def blog_detail(request, slug):
+    return render(request, 'blog_detail.html'
     )
