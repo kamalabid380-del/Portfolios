@@ -2532,3 +2532,53 @@ django.template.exceptions.TemplateDoesNotExist: blogs.html
 [03/Nov/2026 20:33:17] "GET / HTTP/1.1" 200 16800
 [03/Nov/2026 20:33:17] "GET /static/css/navbar.css HTTP/1.1" 404 1908
 [03/Nov/2026 20:33:25] "GET /static/css/navbar.css HTTP/1.1" 404 1908
+[03/Nov/2026 20:57:17] "GET / HTTP/1.1" 200 16800
+[03/Nov/2026 20:57:17] "GET /static/css/navbar.css HTTP/1.1" 404 1908
+[03/Nov/2026 21:28:12] "GET / HTTP/1.1" 200 16800
+[03/Nov/2026 21:28:12] "GET /static/css/navbar.css HTTP/1.1" 404 1908
+C:\Users\ABID\OneDrive\Desktop\portfolio\config\settings.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 03, 2026 - 20:19:56
+Django version 6.1.2, using settings 'config.settings'
+Starting WSGI development server at http://0.0.0.0:80/
+Quit the server with CTRL-BREAK.
+
+WARNING: This is a development server. Do not use it in a production setting. Use a production WSGI or ASGI server instead.
+For more information on production servers see: https://docs.djangoproject.com/en/6.1/howto/deployment/
+Traceback (most recent call last):
+  File "C:\Users\ABID\OneDrive\Desktop\portfolio\manage.py", line 22, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\ABID\OneDrive\Desktop\portfolio\manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\ABID\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\management\__init__.py", line 443, in execute_from_command_line
+    utility.execute()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\ABID\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\core\management\__init__.py", line 383, in execute
+    settings.INSTALLED_APPS
+  File "C:\Users\ABID\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\conf\__init__.py", line 122, in __getattr__
+    self._setup(name)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\ABID\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\conf\__init__.py", line 109, in _setup
+    self._wrapped = Settings(settings_module)
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\ABID\AppData\Local\Programs\Python\Python313\Lib\site-packages\django\conf\__init__.py", line 253, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "C:\Users\ABID\AppData\Local\Programs\Python\Python313\Lib\importlib\__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1395, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 1019, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1157, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1087, in source_to_code
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\ABID\OneDrive\Desktop\portfolio\config\settings.py", line 148
+    'ww
+    ^
+SyntaxError: unterminated string literal (detected at line 148)
