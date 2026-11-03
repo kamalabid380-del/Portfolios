@@ -101,3 +101,10 @@ def robots(request):
         f"User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: {sitemap_url}\n",
         content_type='text/plain',
     )
+
+
+AHERFS_KEY = 'ahrefs_e57b5e9d5d7d1aee1162f6dbc71c50e6c1e8051f398cc2551e045d0ec998462d'
+
+
+def ahrefs_verify(request):
+    return HttpResponse(AHERFS_KEY, content_type='text/html')
