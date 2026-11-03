@@ -30,6 +30,10 @@ for _host in os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(','):
     if _host.strip():
         ALLOWED_HOSTS.append(_host.strip())
 
+_render_host = os.environ.get('RENDER_EXTERNAL_HOSTNAME', '').strip()
+if _render_host and _render_host not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_render_host)
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CSRF_TRUSTED_ORIGINS = [
