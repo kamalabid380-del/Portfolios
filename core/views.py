@@ -90,3 +90,11 @@ def robots(request):
         f"User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: {sitemap_url}\n",
         content_type='text/plain',
     )
+
+def blogs(request):
+    return render(request, 'blogs.html'
+    )
+
+def blog_detail(request, slug):
+    return render(request, 'blog_detail.html'
+    )
