@@ -169,7 +169,11 @@
   <header class="border-b border-gray-200">
 
     <a class="logo" href="{% url 'home' %}" aria-label="{{ profile.name|default:'Abid Kamal' }} — home">Abid Kamal</a>
-    <nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav id="primary-nav" class="primary-nav">
       <ul>
         {% for nav in header_navs %}
         <li><a href="{{ nav.url }}">{{ nav.title }}</a></li>
@@ -179,6 +183,32 @@
       </ul>
     </nav>
   </header>
+
+  <script>
+    (function () {
+      var head = document.querySelector('header');
+      var btn = head.querySelector('.nav-toggle');
+      var nav = head.querySelector('.primary-nav');
+
+      function close() {
+        head.classList.remove('nav-open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      btn.addEventListener('click', function () {
+        var open = head.classList.toggle('nav-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      nav.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') close();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') close();
+      });
+      window.addEventListener('resize', function () {
+        if (window.innerWidth >= 768) close();
+      });
+    })();
+  </script>
 
   <main>
     {% block content %}{% endblock %}
