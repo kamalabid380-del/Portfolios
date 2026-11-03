@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from .models import ContactMessage, Profile, Project, Skill
+from .models import ContactMessage, Post, Profile, Project, Skill
 
 logger = logging.getLogger(__name__)
 
@@ -63,6 +63,17 @@ def work(request):
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
     return render(request, 'core/project_detail.html', {'project': project})
+
+
+def blog(request):
+    return render(request, 'core/blog.html', {
+        'posts': Post.objects.filter(is_published=True),
+    })
+
+
+def blog_post(request, slug):
+    post = get_object_or_404(Post, slug=slug, is_published=True)
+    return render(request, 'core/blog_detail.html', {'post': post})
 
 
 def contact(request):

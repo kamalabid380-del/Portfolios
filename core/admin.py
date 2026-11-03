@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
 
-from .models import ContactMessage, HeaderNav, HitCount, Profile, Project, Skill
+from .models import ContactMessage, HeaderNav, HitCount, Post, Profile, Project, Skill
 
 admin.site.unregister(Group)
 
@@ -33,6 +33,13 @@ class HeaderNavAdmin(admin.ModelAdmin):
 @admin.register(HitCount)
 class HitCountAdmin(admin.ModelAdmin):
     list_display = ['path', 'count']
+
+
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = ['title', 'published_at', 'is_published']
+    list_editable = ['is_published']
+    prepopulated_fields = {'slug': ('title',)}
 
 
 @admin.register(ContactMessage)

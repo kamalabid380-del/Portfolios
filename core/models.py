@@ -1,8 +1,10 @@
+import re
 from pathlib import Path
 
 from django.conf import settings
 from django.db import models
 from django.urls import reverse
+from django.utils.html import escape
 from django.utils.text import slugify
 
 
@@ -107,6 +109,38 @@ class HeaderNav(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=150)
+    slug = models.SlugField(unique=True, blank=True)
+    excerpt = models.CharField(
+        max_length=220,
+        blank=True,
+        help_text="One or two lines shown on the blog list and in search results.",
+    )
+    body = models.TextField(help_text="Write in plain paragraphs. Blank line starts a new paragraph.")
+    published_at = models.DateField(auto_now_add=True)
+    is_published = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['-published_at', '-id']
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('blog_post', kwargs={'slug': self.slug})
+
+    @property
+    def body_html(self):
+        paragraphs = [p.strip() for p in re.split(r'\n\s*\n', self.body) if p.strip()]
+        return ''.join(f'<p>{escape(p)}</p>' for p in paragraphs)
 
 
 class ContactMessage(models.Model):

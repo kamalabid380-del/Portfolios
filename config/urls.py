@@ -4,9 +4,9 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 
-from core.sitemaps import PageSitemap, ProjectSitemap
+from core.sitemaps import PageSitemap, PostSitemap, ProjectSitemap
 
-sitemaps = {'pages': PageSitemap, 'projects': ProjectSitemap}
+sitemaps = {'pages': PageSitemap, 'projects': ProjectSitemap, 'posts': PostSitemap}
 
 urlpatterns = [
     path('admin/', admin.site.urls),

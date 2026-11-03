@@ -1,7 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
-from .models import Project
+from .models import Post, Project
 
 
 class PageSitemap(Sitemap):
@@ -9,7 +9,7 @@ class PageSitemap(Sitemap):
     changefreq = 'weekly'
 
     def items(self):
-        return ['home', 'work', 'contact']
+        return ['home', 'work', 'contact', 'blog']
 
     def location(self, item):
         return reverse(item)
@@ -21,3 +21,11 @@ class ProjectSitemap(Sitemap):
 
     def items(self):
         return Project.objects.all()
+
+
+class PostSitemap(Sitemap):
+    priority = 0.6
+    changefreq = 'yearly'
+
+    def items(self):
+        return Post.objects.filter(is_published=True)
