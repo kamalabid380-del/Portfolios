@@ -9,7 +9,7 @@ class PageSitemap(Sitemap):
     changefreq = 'weekly'
 
     def items(self):
-        return ['home', 'work', 'contact', 'blog']
+        return ['home', 'work', 'contact', 'blogs']
 
     def location(self, item):
         return reverse(item)
