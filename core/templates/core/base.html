@@ -168,7 +168,7 @@
 
   <header class="border-b border-gray-200">
 
-    <div class="logo">Abid Kamal</div>
+    <a class="logo" href="{% url 'home' %}" aria-label="{{ profile.name|default:'Abid Kamal' }} — home">Abid Kamal</a>
     <nav>
       <ul>
         {% for nav in header_navs %}

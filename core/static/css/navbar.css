@@ -1,5 +1,6 @@
 header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 24px;background:#fff}
-.logo{font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+.logo{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;text-decoration:none;color:#111827;transition:color .3s ease,letter-spacing .3s ease}
+.logo:hover,.logo:focus-visible{color:#6b7280;letter-spacing:.26em;text-decoration:none}
 header nav ul{display:flex;flex-wrap:wrap;align-items:center;gap:26px;margin:0;padding:0;list-style:none}
 header nav a{font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:#111827;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .3s ease,color .3s ease}
 header nav a:hover,header nav a:focus-visible{border-bottom-color:#111827}
