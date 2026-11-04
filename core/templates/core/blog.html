@@ -17,6 +17,10 @@
           <h2 class="mt-2 text-xl sm:text-2xl font-light break-words">
             <a href="{{ post.get_absolute_url }}" class="link-underline">{{ post.title }}</a>
           </h2>
+          {% if post.image_url %}
+            <img src="{{ post.image_url }}" alt="{{ post.title }}" loading="lazy"
+              class="mt-4 w-full aspect-[16/9] object-cover border border-gray-200">
+          {% endif %}
           {% if post.excerpt %}
             <p class="mt-3 text-sm text-gray-500 leading-relaxed break-words">{{ post.excerpt }}</p>
           {% endif %}

@@ -120,6 +120,11 @@ class Post(models.Model):
         blank=True,
         help_text="One or two lines shown on the blog list and in search results.",
     )
+    image_url = models.URLField(
+        blank=True,
+        verbose_name="image URL",
+        help_text="Paste a full image link, e.g. https://yourname.com/media/projects/ff.png. Leave empty for a text-only post.",
+    )
     body = models.TextField(help_text="Write in plain paragraphs. Blank line starts a new paragraph.")
     published_at = models.DateField(auto_now_add=True)
     is_published = models.BooleanField(default=True)
