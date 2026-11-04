@@ -24,6 +24,7 @@ class Profile(models.Model):
     linkedin = models.URLField(blank=True)
     facebook = models.URLField(blank=True)
     youtube = models.URLField(blank=True)
+    instagram = models.URLField(blank=True)
     is_active = models.BooleanField(default=True)
 
     class Meta:
