@@ -1,4 +1,4 @@
-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:#fff}
+header{position:sticky;top:0;z-index:50;width:95%;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;background:#fff}
 .logo{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;text-decoration:none;color:#111827;transition:color .3s ease,letter-spacing .3s ease}
 .logo:hover,.logo:focus-visible{color:#6b7280;letter-spacing:.26em;text-decoration:none}
 .primary-nav ul{display:flex;flex-wrap:wrap;align-items:center;gap:30px;margin:0;padding:0;list-style:none}
