@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.contrib.auth.models import Group
 
 from .models import ContactMessage, HeaderNav, HitCount, Post, Profile, Project, Skill
@@ -16,6 +16,39 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ['title', 'year', 'tech', 'is_featured', 'order']
     list_editable = ['is_featured', 'order']
     prepopulated_fields = {'slug': ('title',)}
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        if change:
+            return
+
+        if Post.objects.filter(slug=obj.slug).exists():
+            self.message_user(
+                request,
+                f'Project saved, but a post already uses /blogs/{obj.slug}/ so none was added.',
+                messages.WARNING,
+            )
+            return
+
+        cover = obj.cover_card_url
+        body = [obj.description]
+        if obj.tech:
+            body.append(f'Built with {obj.tech} in {obj.year}.')
+        if obj.link:
+            body.append(f'Live site: {obj.link}')
+        body.append(f'More on the project page: {request.build_absolute_uri(obj.get_absolute_url())}')
+
+        Post.objects.create(
+            title=obj.title,
+            slug=obj.slug,
+            excerpt=obj.summary[:220],
+            image_url=request.build_absolute_uri(cover) if cover else '',
+            body='\n\n'.join(part for part in body if part),
+        )
+        self.message_user(
+            request,
+            f'Blog post added at /blogs/{obj.slug}/ — rewrite it any time under Posts.',
+        )
 
 
 @admin.register(Skill)
