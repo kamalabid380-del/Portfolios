@@ -247,6 +247,8 @@
             class="underline">YouTube</a>{% endif %}
           {% if profile and profile.instagram %}<a href="{{ profile.instagram }}" rel="noopener"
             class="underline">Instagram</a>{% endif %}
+          {% if profile and profile.pinterest %}<a href="{{ profile.pinterest }}" rel="noopener"
+            class="underline">Pinterest</a>{% endif %}
         </p>
         <p>© {% now "Y" %} {{ profile.name|default:"Portfolio" }}</p>
         <p class="tracking-[0.2em]">VISITORS {{ hit_count }}</p>

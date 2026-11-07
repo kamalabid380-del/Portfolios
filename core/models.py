@@ -25,6 +25,7 @@ class Profile(models.Model):
     facebook = models.URLField(blank=True)
     youtube = models.URLField(blank=True)
     instagram = models.URLField(blank=True)
+    pinterest = models.URLField(blank=True)
     is_active = models.BooleanField(default=True)
 
     class Meta:
@@ -41,7 +42,7 @@ class Profile(models.Model):
 
     @property
     def social_urls(self):
-        return [u for u in (self.github, self.linkedin, self.facebook, self.youtube) if u]
+        return [u for u in (self.github, self.linkedin, self.facebook, self.youtube, self.pinterest) if u]
 
 
 class Skill(models.Model):
