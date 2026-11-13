@@ -40,7 +40,7 @@ def notify_owner(msg):
 
 def home(request):
     return render(request, 'core/home.html', {
-        'projects': Project.objects.filter(is_featured=True)[:6],
+        'projects': Project.objects.filter(is_featured=True),
         'skills': Skill.objects.all(),
     })
 
