@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://kamalabid380-del.github.io/Portfolios/sitemap.xml
