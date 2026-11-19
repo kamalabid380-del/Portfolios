@@ -50,19 +50,19 @@
       {% if profile %}
       <a href="mailto:{{ profile.email }}" class="mt-3 block text-gray-900 underline break-all">{{ profile.email }}</a>
       {% if profile.github %}
-      <a href="{{ profile.github }}" rel="noopener" class="mt-2 block underline">GitHub</a>
+      <a href="{{ profile.github }}" rel="noopener" target="_blank" class="mt-2 block underline">GitHub</a>
       {% endif %}
       {% if profile.linkedin %}
-      <a href="{{ profile.linkedin }}" rel="noopener" class="mt-2 block underline">LinkedIn</a>
+      <a href="{{ profile.linkedin }}" rel="noopener" target="_blank" class="mt-2 block underline">LinkedIn</a>
       {% endif %}
       {% if profile.facebook %}
-      <a href="{{ profile.facebook }}" rel="noopener" class="mt-2 block underline">Facebook</a>
+      <a href="{{ profile.facebook }}" rel="noopener" target="_blank" class="mt-2 block underline">Facebook</a>
       {% endif %}
       {% if profile.youtube %}
-      <a href="{{ profile.youtube }}" rel="noopener" class="mt-2 block underline">YouTube</a>
+      <a href="{{ profile.youtube }}" rel="noopener" target="_blank" class="mt-2 block underline">YouTube</a>
       {% endif %}
       {% if profile.pinterest %}
-      <a href="{{ profile.pinterest }}" rel="noopener" class="mt-2 block underline">Pinterest</a>
+      <a href="{{ profile.pinterest }}" rel="noopener" target="_blank" class="mt-2 block underline">Pinterest</a>
       {% endif %}
       {% else %}
       <p class="mt-3">Add your email in /admin/ → Profile.</p>
