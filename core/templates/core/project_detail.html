@@ -55,7 +55,7 @@
 
     {% if project.cover %}
       <div class="mt-8 sm:mt-10 bg-gray-100" data-reveal style="--d: 160ms">
-        <img src="{{ project.cover.url }}" alt="{{ project.title }} — {{ project.summary }}"
+        <img src="{{ project.cover_card_url }}" alt="{{ project.title }} — {{ project.summary }}"
              class="w-full h-auto" loading="eager" fetchpriority="high" decoding="async">
       </div>
     {% endif %}
