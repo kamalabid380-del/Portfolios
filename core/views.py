@@ -2,6 +2,7 @@ import logging
 import re
 
 from django.conf import settings
+from django.contrib.auth import logout as auth_logout
 from django.core.mail import EmailMessage
 from django.db.models import Q
 from django.http import HttpResponse
@@ -108,3 +109,8 @@ AHERFS_KEY = 'ahrefs_e57b5e9d5d7d1aee1162f6dbc71c50e6c1e8051f398cc2551e045d0ec99
 
 def ahrefs_verify(request):
     return HttpResponse(AHERFS_KEY, content_type='text/html')
+
+
+def admin_logout(request):
+    auth_logout(request)
+    return redirect('/admin/')

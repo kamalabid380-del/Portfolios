@@ -4,11 +4,13 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 
+from core import views as core_views
 from core.sitemaps import PageSitemap, PostSitemap, ProjectSitemap
 
 sitemaps = {'pages': PageSitemap, 'projects': ProjectSitemap, 'posts': PostSitemap}
 
 urlpatterns = [
+    path('admin/logout/', core_views.admin_logout, name='admin_logout'),
     path('admin/', admin.site.urls),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='sitemap'),
     path('', include('core.urls')),
