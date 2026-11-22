@@ -35,9 +35,18 @@ _render_host = os.environ.get('RENDER_EXTERNAL_HOSTNAME', '').strip()
 if _render_host and _render_host not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(_render_host)
 
-_vercel_host = os.environ.get('VERCEL_URL', '').strip()
-if _vercel_host and _vercel_host not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append(_vercel_host)
+_vercel_hosts = []
+for _vercel_key in ('VERCEL_URL', 'VERCEL_BRANCH_URL', 'VERCEL_PROJECT_PRODUCTION_URL'):
+    _vercel_host = os.environ.get(_vercel_key, '').strip()
+    if _vercel_host and _vercel_host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(_vercel_host)
+        _vercel_hosts.append(_vercel_host)
+
+if os.environ.get('VERCEL'):
+    if '.vercel.app' not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append('.vercel.app')
+    if 'portfolios-tan-beta.vercel.app' not in _vercel_hosts:
+        _vercel_hosts.append('portfolios-tan-beta.vercel.app')
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -47,6 +56,11 @@ CSRF_TRUSTED_ORIGINS = [
     for _host in ALLOWED_HOSTS
     if _host not in ('127.0.0.1', 'localhost', '192.168.100.96') and not _host.startswith('.')
 ]
+
+for _vercel_host in _vercel_hosts:
+    _origin = f'https://{_vercel_host}'
+    if _origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(_origin)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
