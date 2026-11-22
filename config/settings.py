@@ -25,7 +25,18 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '1') == '1'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.pythonanywhere.com', 'abidkamal.com', 'www.abidkamal.com', 'auracad.org', 'www.auracad.org', '192.168.100.96']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    '.pythonanywhere.com',
+    'abidkamal.com',
+    'www.abidkamal.com',
+    'abidkaml.app',
+    'www.abidkaml.app',
+    'auracad.org',
+    'www.auracad.org',
+    '192.168.100.96',
+]
 
 for _host in os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(','):
     if _host.strip():
