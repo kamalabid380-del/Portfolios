@@ -6,6 +6,10 @@ Portfolio of Abid Kamal Khan — Shopify stores, web development and SEO case st
 
 Django site (Python, Django, SQLite, Tailwind) deployed on Vercel.
 
+## Updating the live site
+
+After adding or editing projects, posts, or profile details in the local admin, double-click **refresh-seed.bat**. It exports the content to `core/fixtures/seed.json`, commits it, and pushes; Vercel redeploys automatically.
+
 ## Pages
 
 - [Home](https://portfolios-tan-beta.vercel.app/)
