@@ -56,8 +56,9 @@ for _vercel_key in ('VERCEL_URL', 'VERCEL_BRANCH_URL', 'VERCEL_PROJECT_PRODUCTIO
 if os.environ.get('VERCEL'):
     if '.vercel.app' not in ALLOWED_HOSTS:
         ALLOWED_HOSTS.append('.vercel.app')
-    if 'portfolios-tan-beta.vercel.app' not in _vercel_hosts:
-        _vercel_hosts.append('portfolios-tan-beta.vercel.app')
+    for _known_vercel in ('portfolios-tan-beta.vercel.app', 'abidkamal.vercel.app'):
+        if _known_vercel not in _vercel_hosts:
+            _vercel_hosts.append(_known_vercel)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
