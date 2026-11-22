@@ -129,10 +129,11 @@ class Post(models.Model):
     )
     body = models.TextField(help_text="Write in plain paragraphs. Blank line starts a new paragraph.")
     published_at = models.DateField(auto_now_add=True)
+    order = models.IntegerField(default=0, help_text="Lower numbers appear first on the blog.")
     is_published = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ['-published_at', '-id']
+        ordering = ['order', '-published_at', '-id']
 
     def __str__(self):
         return self.title

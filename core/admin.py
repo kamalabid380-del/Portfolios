@@ -70,8 +70,9 @@ class HitCountAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'published_at', 'is_published']
-    list_editable = ['is_published']
+    list_display = ['order', 'title', 'published_at', 'is_published']
+    list_display_links = ['title']
+    list_editable = ['order', 'is_published']
     prepopulated_fields = {'slug': ('title',)}
 
 
