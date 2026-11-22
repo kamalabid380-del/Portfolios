@@ -1,4 +1,5 @@
 import os
+import shutil
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,6 +34,10 @@ for _host in os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(','):
 _render_host = os.environ.get('RENDER_EXTERNAL_HOSTNAME', '').strip()
 if _render_host and _render_host not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(_render_host)
+
+_vercel_host = os.environ.get('VERCEL_URL', '').strip()
+if _vercel_host and _vercel_host not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append(_vercel_host)
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
@@ -94,6 +99,15 @@ DATABASES = {
         'OPTIONS': {'timeout': 30},
     }
 }
+
+# Vercel's filesystem is read-only apart from /tmp, and SQLite needs write
+# access even to read, so serve a seeded copy of the bundled database.
+if os.environ.get('VERCEL'):
+    _tmp_db = Path('/tmp/db.sqlite3')
+    _bundled_db = BASE_DIR / 'db.sqlite3'
+    if not _tmp_db.exists() and _bundled_db.exists():
+        shutil.copy2(_bundled_db, _tmp_db)
+    DATABASES['default']['NAME'] = _tmp_db
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
