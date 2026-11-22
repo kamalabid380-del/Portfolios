@@ -1,0 +1,357 @@
+[
+{
+  "model": "core.profile",
+  "pk": 1,
+  "fields": {
+    "name": "Abid Kamal Khan",
+    "role": "Shopify",
+    "location": "Lahore, Pakistan, TajBagh",
+    "email": "abidkamal336@gmail.com",
+    "whatsapp": "+92 308 5198908",
+    "bio": "I build clean, fast websites and web apps with Python and Django. I handle everything from database models to the final page, with search-friendly markup built in  Data Entry.",
+    "avatar": "",
+    "github": "https://github.com/",
+    "linkedin": "https://www.linkedin.com/in/abid-kamal-080924447/",
+    "facebook": "https://www.facebook.com/profile.php?id=61596157397625",
+    "youtube": "https://www.youtube.com/channel/UCUEzdClmBR6afj2BpVKgv5A",
+    "instagram": "https://www.instagram.com/abidkamal.socialmediamarketing/",
+    "pinterest": "https://www.pinterest.com/kamalabid380/",
+    "twitter": "https://x.com/AbidKamalKm1",
+    "is_active": true
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 3,
+  "fields": {
+    "name": "HTML / CSS",
+    "order": 1
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 4,
+  "fields": {
+    "name": "JavaScript",
+    "order": 3
+  }
+},
+{
+  "model": "core.skill",
+  "pk": 5,
+  "fields": {
+    "name": "Shopify",
+    "order": 2
+  }
+},
+{
+  "model": "core.project",
+  "pk": 8,
+  "fields": {
+    "title": "Zainab Chothani",
+    "slug": "zainab-chothani",
+    "summary": "Html& Css, Javascript",
+    "description": "Welcome to ZainabChottani.com, the epitome of elegance and sophistication in the world of fashion. Our journey began with a dream, a dream to redefine the art of dressing and empower women to embrace their individuality through style.\r\nFounded by the visionary designer Zainab Chottani, our brand has evolved into a symbol of timeless beauty and contemporary grace. With an innate passion for design, Zainab embarked on this creative journey with a commitment to crafting exquisite ensembles that reflect the diverse tastes of modern women.",
+    "cover": "projects/zainab-chothani_XseROlG.png",
+    "tech": "Html& Css, Javascript / Shopify",
+    "link": "https://pk.zainabchottani.com/",
+    "year": 2024,
+    "is_featured": true,
+    "order": 5
+  }
+},
+{
+  "model": "core.project",
+  "pk": 9,
+  "fields": {
+    "title": "Zainab Chothani-2",
+    "slug": "zainab-chothani-2",
+    "summary": "Shopify",
+    "description": "Welcome to ZainabChottani.com, the epitome of elegance and sophistication in the world of fashion. Our journey began with a dream, a dream to redefine the art of dressing and empower women to embrace their individuality through style.\r\nFounded by the visionary designer Zainab Chottani, our brand has evolved into a symbol of timeless beauty and contemporary grace. With an innate passion for design, Zainab embarked on this creative journey with a commitment to crafting exquisite ensembles that reflect the diverse tastes of modern women.",
+    "cover": "projects/zainab-chothani_OCwYQB7.png",
+    "tech": "Shopify",
+    "link": "https://pk.zainabchottani.com/",
+    "year": 2026,
+    "is_featured": true,
+    "order": 6
+  }
+},
+{
+  "model": "core.project",
+  "pk": 10,
+  "fields": {
+    "title": "Hamna Amir",
+    "slug": "hamna-amir",
+    "summary": "Shopify",
+    "description": "A study in precious contrasts. Rich ruby hues meet luminous mother of pearl, framed by the delicate brilliance of zirconic polki and zircons. Designed to leave a lasting impression.",
+    "cover": "projects/hanna-amir.png",
+    "tech": "Shopify",
+    "link": "http://hamnaamir.com/",
+    "year": 2022,
+    "is_featured": true,
+    "order": 3
+  }
+},
+{
+  "model": "core.project",
+  "pk": 11,
+  "fields": {
+    "title": "Favourbrook",
+    "slug": "favourbrook",
+    "summary": "Pythons Django / Shopify",
+    "description": "Over the years we have endeavoured to create trusting, open and transparent relationships with a network of suppliers, in order to support workers’ rights and their welfare. It is important to us that the people making our clothes are treated with dignity, respect and care. By situating our manufacturing predominantly right here in the UK, and Portugal, we avoid many of the labour issues which are prevalent in the wider supply chain of the fashion industry, such as forced labour, unfair pay arrangements and unsafe working environments. The countries in which we produce have tight legal frameworks on employment of garment workers, which in the majority of situations prevents issues faced in less regulated garment manufacturing countries. We visit our factories regularly to meet with management and workers and manage the quality of our products.",
+    "cover": "projects/fsvourbrook.png",
+    "tech": "Shopify",
+    "link": "http://favourbook.org/",
+    "year": 2026,
+    "is_featured": true,
+    "order": 7
+  }
+},
+{
+  "model": "core.project",
+  "pk": 12,
+  "fields": {
+    "title": "Favor House",
+    "slug": "favor-house",
+    "summary": "Shopify",
+    "description": "theis",
+    "cover": "projects/ff.png",
+    "tech": "Shopify",
+    "link": "http://favourhouse.org/",
+    "year": 2026,
+    "is_featured": true,
+    "order": 9
+  }
+},
+{
+  "model": "core.project",
+  "pk": 13,
+  "fields": {
+    "title": "Innove Couture",
+    "slug": "innove-couture",
+    "summary": "Shopify",
+    "description": "Bridal consultations are booked four to six months ahead. Write to us with your date, your city, and a sentence about what you are imagining.",
+    "cover": "projects/innvoe-couture.png",
+    "tech": "Shopify",
+    "link": "http://www.innovecouture.uk/",
+    "year": 2026,
+    "is_featured": true,
+    "order": 8
+  }
+},
+{
+  "model": "core.project",
+  "pk": 14,
+  "fields": {
+    "title": "MNR",
+    "slug": "mnr",
+    "summary": "Shopify",
+    "description": "MNR's brand straddles the present while rooted in Eastern heritage of draped form and traditional artistry. These quintessential techniques of craftsmanship, imbibed with love across generations, are made globally astute through the cut, construct and finish of MNR silhouettes. Found in 2014, Mohsin Naveed Ranjha's Design House juxtaposes modern sartorial prowess and the intricacies of old world techniques with skills. Richly detailed, structured drapes are crafted to lend an edge to MNR's modern, Pakistani woman. Bridal couture, formal wear and ready to wear for both men and women. The designer studio creates unique combination of historical opulence and contemporary chic through the fine crafts and textiles of Pakistan.",
+    "cover": "projects/mnr.png",
+    "tech": "Shopify",
+    "link": "http://mnr.com/",
+    "year": 2026,
+    "is_featured": true,
+    "order": 1
+  }
+},
+{
+  "model": "core.project",
+  "pk": 15,
+  "fields": {
+    "title": "Zain Hashmi",
+    "slug": "zain-hashmi",
+    "summary": "Shopify",
+    "description": "At Zain Hashmi, pomp and circumstance are conjoined in the highest expression of haute couture with the excellence of a tradition that inextricably interweaves refinement (with a capital “R”) and a very contemporary desire to delight.\r\n\r\nIn workshops producing gowns, suits, and bridal wear the elite of “petites mains” works in concert and always in perfect harmony with the couturier, perpetuating age-old skills handed down from generation to generation – treasured skills through which each model, in its absolute perfection, conveys that additional whisper of eternity that is the hallmark of the true work of art.\r\n\r\nAs a result, these brilliant craftspeople - pattern makers, dressmakers, alterations specialists, designers, and embroiderers – together epitomize a peerless sense of luxury\r\n\r\nThe luxury of time, first of all, since a thousand hours of devoted labor –sometimes double that – go into making a couture dress. a dress that, to show at its best, will have gone through three fittings at least – essential stages from calico toile to final fabric, incompressible times of to-and-fro to ensure a faultless bespoke garment hovering twixt creativity and haute technique, twixt dream and reality, glamour and well-being.\r\n\r\nThe luxury of the exclusive comes next because all that hand-made embroidery, not to mention the fabrics, the patterns, and the colors, are all especially thought through and designed. A vision of elegance rooted in the here and now, the forever, and the incomparable.\r\n\r\nThe multiplicity of luxury, finally, because this stunning oeuvre of a couturier spans day and night, town, red carpet, and glittering reception, with evening dresses as well as skirt or pants suits, jumpsuits, jackets, shirts, and capes. Not forgetting that memorable day of days, with henceforth an unparalleled collection of bridal wear.",
+    "cover": "projects/za.png",
+    "tech": "Shopify",
+    "link": "http://zainhashmi.org/",
+    "year": 2026,
+    "is_featured": true,
+    "order": 2
+  }
+},
+{
+  "model": "core.project",
+  "pk": 16,
+  "fields": {
+    "title": "Asim Jofa",
+    "slug": "asim-jofa",
+    "summary": "Shopify",
+    "description": "Asim Jofa burst onto the Fashion scene as a breath of fresh air. Carrying on the legacy of his forefathers he started with a jewelry line 12 years ago, establishing the highly exclusive, one of a kind diamond boutique 'The Diamond Gallery'. Having been certified in Design from the prestigious Central Saint Martins, Asim went on to create ripples in the fashion industry. He has achieved great acclaim for his various collections displayed on the runways in the fashion capitals of the world. He has been honored with IAPA International Asian Fashion Awards as the Best Designer Brand in 2012. In the same year Asim bagged the Collection of the Year award held by the Pakistan Fashion Awards. He continues to improve on perfection and in the future, Asim plans to create more buzz and dress Pakistani women fabulously,",
+    "cover": "projects/asim-jofa.png",
+    "tech": "Shopify",
+    "link": "https://kamalabid380-del.github.io/Asim-Jofa/",
+    "year": 2026,
+    "is_featured": true,
+    "order": 4
+  }
+},
+{
+  "model": "core.post",
+  "pk": 1,
+  "fields": {
+    "title": "Zainab Chothani",
+    "slug": "zainab-chothani",
+    "excerpt": "zainab-chothani/blog/",
+    "image_url": "/media/posts/zainab-chothani.jpg",
+    "body": "Welcome to ZainabChottani.com, the epitome of elegance and sophistication in the world of fashion. Our journey began with a dream, a dream to redefine the art of dressing and empower women to embrace their individuality through style.\r\nFounded by the visionary designer Zainab Chottani, our brand has evolved into a symbol of timeless beauty and contemporary grace. With an innate passion for design, Zainab embarked on this creative journey with a commitment to crafting exquisite ensembles that reflect the diverse tastes of modern women.",
+    "published_at": "2026-11-03",
+    "order": 5,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 2,
+  "fields": {
+    "title": "MNR",
+    "slug": "mnr",
+    "excerpt": "Pythons Django / Shopify",
+    "image_url": "/media/projects/mnr.png",
+    "body": "MNR's brand straddles the present while rooted in Eastern heritage of draped form and traditional artistry. These quintessential techniques of craftsmanship, imbibed with love across generations, are made globally astute through the cut, construct and finish of MNR silhouettes. Found in 2014, Mohsin Naveed Ranjha's Design House juxtaposes modern sartorial prowess and the intricacies of old world techniques with skills. Richly detailed, structured drapes are crafted to lend an edge to MNR's modern, Pakistani woman. Bridal couture, formal wear and ready to wear for both men and women. The designer studio creates unique combination of historical opulence and contemporary chic through the fine crafts and textiles of Pakistan.\r\n\r\nBuilt with Pythons Django / Shopify in 2026.\r\n\r\nLive site: https://www.mohsinnaveedranjha.com/\r\n\r\nMore on the project page: http://abidkamal.com/work/mnr/",
+    "published_at": "2026-11-08",
+    "order": 2,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 3,
+  "fields": {
+    "title": "Zain Hashmi",
+    "slug": "zain-hashmi",
+    "excerpt": "Pythons Django / Shopify",
+    "image_url": "/media/projects/za.png",
+    "body": "At Zain Hashmi, pomp and circumstance are conjoined in the highest expression of haute couture with the excellence of a tradition that inextricably interweaves refinement (with a capital “R”) and a very contemporary desire to delight.\r\n\r\nIn workshops producing gowns, suits, and bridal wear the elite of “petites mains” works in concert and always in perfect harmony with the couturier, perpetuating age-old skills handed down from generation to generation – treasured skills through which each model, in its absolute perfection, conveys that additional whisper of eternity that is the hallmark of the true work of art.\r\n\r\nAs a result, these brilliant craftspeople - pattern makers, dressmakers, alterations specialists, designers, and embroiderers – together epitomize a peerless sense of luxury\r\n\r\nThe luxury of time, first of all, since a thousand hours of devoted labor –sometimes double that – go into making a couture dress. a dress that, to show at its best, will have gone through three fittings at least – essential stages from calico toile to final fabric, incompressible times of to-and-fro to ensure a faultless bespoke garment hovering twixt creativity and haute technique, twixt dream and reality, glamour and well-being.\r\n\r\nThe luxury of the exclusive comes next because all that hand-made embroidery, not to mention the fabrics, the patterns, and the colors, are all especially thought through and designed. A vision of elegance rooted in the here and now, the forever, and the incomparable.\r\n\r\nThe multiplicity of luxury, finally, because this stunning oeuvre of a couturier spans day and night, town, red carpet, and glittering reception, with evening dresses as well as skirt or pants suits, jumpsuits, jackets, shirts, and capes. Not forgetting that memorable day of days, with henceforth an unparalleled collection of bridal wear.\n\nBuilt with Pythons Django / Shopify in 2026.\n\nMore on the project page: http://abidkamal.com/work/zain-hashmi/",
+    "published_at": "2026-11-11",
+    "order": 1,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 4,
+  "fields": {
+    "title": "Favor House",
+    "slug": "favor-house",
+    "excerpt": "Pythons Django / Shopify",
+    "image_url": "/media/projects/opt/ff.webp",
+    "body": "theis\n\nBuilt with Pythons Django / Shopify in 2026.\n\nLive site: http://favourhouse.org/\n\nMore on the project page: http://abidkamal.com/work/favor-house/",
+    "published_at": "2026-11-13",
+    "order": 9,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 5,
+  "fields": {
+    "title": "Innove Couture",
+    "slug": "innove-couture",
+    "excerpt": "Pythons Django / Shopify",
+    "image_url": "/media/projects/opt/innvoe-couture.webp",
+    "body": "Bridal consultations are booked four to six months ahead. Write to us with your date, your city, and a sentence about what you are imagining.\n\nBuilt with Pythons Django / Shopify in 2026.\n\nLive site: http://www.innovecouture.uk/\n\nMore on the project page: http://abidkamal.com/work/innove-couture/",
+    "published_at": "2026-11-13",
+    "order": 8,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 6,
+  "fields": {
+    "title": "Favourbrook",
+    "slug": "favourbrook",
+    "excerpt": "Pythons Django / Shopify",
+    "image_url": "/media/projects/opt/fsvourbrook.webp",
+    "body": "Over the years we have endeavoured to create trusting, open and transparent relationships with a network of suppliers, in order to support workers’ rights and their welfare. It is important to us that the people making our clothes are treated with dignity, respect and care. By situating our manufacturing predominantly right here in the UK, and Portugal, we avoid many of the labour issues which are prevalent in the wider supply chain of the fashion industry, such as forced labour, unfair pay arrangements and unsafe working environments. The countries in which we produce have tight legal frameworks on employment of garment workers, which in the majority of situations prevents issues faced in less regulated garment manufacturing countries. We visit our factories regularly to meet with management and workers and manage the quality of our products.\n\nBuilt with Pythons Django / Shopify in 2026.\n\nLive site: http://favourbook.org/\n\nMore on the project page: http://abidkamal.com/work/favourbrook/",
+    "published_at": "2026-11-13",
+    "order": 7,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 7,
+  "fields": {
+    "title": "Zainab Chothani-2",
+    "slug": "zainab-chothani-2",
+    "excerpt": "Pythons Django / Shopify",
+    "image_url": "/media/projects/opt/zainab-chothani_OCwYQB7.webp",
+    "body": "Welcome to ZainabChottani.com, the epitome of elegance and sophistication in the world of fashion. Our journey began with a dream, a dream to redefine the art of dressing and empower women to embrace their individuality through style.\r\nFounded by the visionary designer Zainab Chottani, our brand has evolved into a symbol of timeless beauty and contemporary grace. With an innate passion for design, Zainab embarked on this creative journey with a commitment to crafting exquisite ensembles that reflect the diverse tastes of modern women.\n\nBuilt with Pythons Django / Shopify in 2026.\n\nLive site: https://pk.zainabchottani.com/\n\nMore on the project page: http://abidkamal.com/work/zainab-chothani-2/",
+    "published_at": "2026-11-13",
+    "order": 6,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 8,
+  "fields": {
+    "title": "Hamna Amir",
+    "slug": "hamna-amir",
+    "excerpt": "Pythons Django / Shopify",
+    "image_url": "/media/projects/opt/hanna-amir.webp",
+    "body": "A study in precious contrasts. Rich ruby hues meet luminous mother of pearl, framed by the delicate brilliance of zirconic polki and zircons. Designed to leave a lasting impression.\n\nBuilt with Pythons Django / Shopify in 2022.\n\nLive site: http://hamnaamir.com/\n\nMore on the project page: http://abidkamal.com/work/hamna-amir/",
+    "published_at": "2026-11-13",
+    "order": 4,
+    "is_published": true
+  }
+},
+{
+  "model": "core.post",
+  "pk": 9,
+  "fields": {
+    "title": "Asim Jofa",
+    "slug": "asim-jofa",
+    "excerpt": "Shopify",
+    "image_url": "/media/projects/opt/asim-jofa.webp",
+    "body": "Asim Jofa burst onto the Fashion scene as a breath of fresh air. Carrying on the legacy of his forefathers he started with a jewelry line 12 years ago, establishing the highly exclusive, one of a kind diamond boutique 'The Diamond Gallery'. Having been certified in Design from the prestigious Central Saint Martins, Asim went on to create ripples in the fashion industry. He has achieved great acclaim for his various collections displayed on the runways in the fashion capitals of the world. He has been honored with IAPA International Asian Fashion Awards as the Best Designer Brand in 2012. In the same year Asim bagged the Collection of the Year award held by the Pakistan Fashion Awards. He continues to improve on perfection and in the future, Asim plans to create more buzz and dress Pakistani women fabulously,\n\nBuilt with Shopify in 2026.\n\nMore on the project page: http://abidkamal.com/work/asim-jofa/\n\nLive site: https://asim-jofa.uk",
+    "published_at": "2026-11-20",
+    "order": 3,
+    "is_published": true
+  }
+},
+{
+  "model": "core.headernav",
+  "pk": 5,
+  "fields": {
+    "title": "HOME",
+    "url": "/",
+    "order": 0,
+    "is_active": false
+  }
+},
+{
+  "model": "core.headernav",
+  "pk": 6,
+  "fields": {
+    "title": "WORK",
+    "url": "/work/",
+    "order": 1,
+    "is_active": true
+  }
+},
+{
+  "model": "core.headernav",
+  "pk": 7,
+  "fields": {
+    "title": "BLOGS",
+    "url": "/blogs/",
+    "order": 3,
+    "is_active": true
+  }
+},
+{
+  "model": "core.headernav",
+  "pk": 8,
+  "fields": {
+    "title": "CONTACT",
+    "url": "/contact/",
+    "order": 2,
+    "is_active": true
+  }
+}
+]

@@ -7,9 +7,13 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 _django_application = get_wsgi_application()
 
 if os.environ.get('VERCEL'):
+    from django.apps import apps
     from django.core.management import call_command
 
     call_command('migrate', interactive=False, verbosity=0)
+    for _model in ('ContactMessage', 'Project', 'Post', 'Skill', 'HeaderNav', 'Profile'):
+        apps.get_model('core', _model).objects.all().delete()
+    call_command('loaddata', 'seed', verbosity=0)
 
 from django.conf import settings  # noqa: E402  (needs the app loaded)
 from whitenoise import WhiteNoise  # noqa: E402
