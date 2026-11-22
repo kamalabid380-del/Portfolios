@@ -108,6 +108,21 @@
         transform: translateY(-6px);
       }
 
+      .card-lift:hover .zoom-box img,
+      .group:hover .zoom-box img {
+        transform: scale(1.05);
+      }
+
+      .card-lift h3 a,
+      .group h2 a {
+        transition: color .3s ease;
+      }
+
+      .card-lift:hover h3 a,
+      .group:hover h2 a {
+        color: #6b7280;
+      }
+
       .skill-tag {
         transition: background-color .3s ease, color .3s ease,
           border-color .3s ease, transform .3s ease;
@@ -217,7 +232,7 @@
 
   <footer class="border-t border-gray-200">
     <div
-      class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col md:flex-row md:justify-between gap-8 md:gap-6">
+      class="max-w-5xl mx-auto px-4 sm:px-6 py-12 sm:py-16 flex flex-col md:flex-row md:justify-between gap-8 md:gap-6" data-reveal>
       <div class="min-w-0">
         <h2 class="text-[24px] tracking-[0.3em] text-gray-600">GET IN TOUCH</h2>
         {% if profile %}
@@ -285,6 +300,9 @@
 
   <script>
     (function () {
+      document.querySelectorAll('.post-body > p, .project-body > p').forEach(function (p) {
+        p.setAttribute('data-reveal', '');
+      });
       var els = document.querySelectorAll('[data-reveal]');
       if (!els.length) return;
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -292,10 +310,13 @@
         els.forEach(function (el) { el.classList.add('is-visible'); });
         return;
       }
-      document.querySelectorAll('.card-lift').forEach(function (el, i) {
-        if (!el.style.getPropertyValue('--d')) {
-          el.style.setProperty('--d', (i % 4) * 90 + 'ms');
+      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+        if (el.style.getPropertyValue('--d')) return;
+        var i = 0, s = el;
+        while ((s = s.previousElementSibling)) {
+          if (s.hasAttribute('data-reveal')) i++;
         }
+        if (i) el.style.setProperty('--d', Math.min(i, 8) * 70 + 'ms');
       });
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
