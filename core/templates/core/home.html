@@ -30,39 +30,60 @@
 
 {% block content %}
 <section aria-labelledby="hero-title" class="max-w-5xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-14 sm:pb-16">
-  <p class="text-[11px] tracking-[0.3em] text-gray-400" data-reveal>PORTFOLIO</p>
-  <h1 id="hero-title" class="mt-4 text-4xl sm:text-5xl md:text-6xl font-light leading-tight break-words" data-reveal
-    style="--d: 80ms">
-    {{ profile.name|default:"Your Name" }}
-  </h1>
-  <p class="mt-3 text-[11px] sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] text-gray-500 break-words" data-reveal
-    style="--d: 140ms">
-    {{ profile.role|default:"PYTHON & DJANGO WEB DEVELOPER"|upper }}
-  </p>
-  {% if profile %}
-  <div class="mt-5 max-w-xl text-gray-500 leading-relaxed space-y-3" data-reveal style="--d: 200ms">
-    {{ profile.bio|linebreaks }}
+  {% with featured=projects.first %}
+  <div class="grid gap-10 sm:gap-12{% if featured.cover %} md:grid-cols-2 md:items-center{% endif %}">
+    <div class="min-w-0">
+      <p class="text-[11px] tracking-[0.3em] text-gray-400" data-reveal="left">PORTFOLIO</p>
+      <h1 id="hero-title" class="mt-4 text-4xl sm:text-5xl md:text-6xl font-light leading-tight break-words"
+        data-reveal="left" style="--d: 80ms">
+        {{ profile.name|default:"Your Name" }}
+      </h1>
+      <p class="mt-3 text-[11px] sm:text-sm tracking-[0.15em] sm:tracking-[0.2em] text-gray-500 break-words"
+        data-reveal="left" style="--d: 140ms">
+        {{ profile.role|default:"PYTHON & DJANGO WEB DEVELOPER"|upper }}
+      </p>
+      {% if profile %}
+      <div class="mt-5 max-w-xl text-gray-500 leading-relaxed space-y-3" data-reveal="left" style="--d: 200ms">
+        {{ profile.bio|linebreaks }}
+      </div>
+      {% endif %}
+      <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 text-[11px] tracking-[0.2em]" data-reveal="left"
+        style="--d: 280ms">
+        <a href="{% url 'work' %}" class="bg-gray-900 text-white px-5 py-4 sm:py-3 text-center arrow-move">VIEW WORK
+          <span>→</span></a>
+        <a href="{% url 'contact' %}" class="border border-gray-900 px-5 py-4 sm:py-3 text-center btn-fill">HIRE ME</a>
+      </div>
+      {% if skills %}
+      <ul class="mt-10 flex flex-wrap gap-2 text-[10px] tracking-widest" aria-label="Skills" data-reveal="left"
+        style="--d: 360ms">
+        {% for s in skills %}
+        <li>
+          <a href="{% url 'work' %}?skill={{ s.name|urlencode }}"
+            class="skill-tag border border-gray-300 px-3 py-1 inline-block">{{ s.name|upper }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <p class="mt-6 text-[10px] tracking-[0.3em] text-gray-400" data-reveal="left" style="--d: 420ms">
+        VISITORS {{ hit_count }}
+      </p>
+    </div>
+
+    {% if featured.cover %}
+    <div class="min-w-0" data-reveal="right" style="--d: 220ms">
+      <a href="{{ featured.get_absolute_url }}" class="block zoom-box bg-gray-100"
+        aria-label="View the {{ featured.title }} case study">
+        <img src="{{ featured.cover_card_url }}" alt="{{ featured.title }} — {{ featured.summary }}"
+          class="w-full h-auto" loading="eager" fetchpriority="high" decoding="async">
+      </a>
+      <p class="mt-3 flex items-center justify-between gap-4 text-[10px] tracking-[0.2em] text-gray-400">
+        <span class="truncate">{{ featured.title|upper }}</span>
+        <span class="arrow-move whitespace-nowrap">VIEW CASE STUDY <span>→</span></span>
+      </p>
+    </div>
+    {% endif %}
   </div>
-  {% endif %}
-  <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3 text-[11px] tracking-[0.2em]" data-reveal
-    style="--d: 280ms">
-    <a href="{% url 'work' %}" class="bg-gray-900 text-white px-5 py-4 sm:py-3 text-center arrow-move">VIEW WORK
-      <span>→</span></a>
-    <a href="{% url 'contact' %}" class="border border-gray-900 px-5 py-4 sm:py-3 text-center btn-fill">HIRE ME</a>
-  </div>
-  {% if skills %}
-  <ul class="mt-10 flex flex-wrap gap-2 text-[10px] tracking-widest" aria-label="Skills" data-reveal style="--d: 360ms">
-    {% for s in skills %}
-    <li>
-      <a href="{% url 'work' %}?skill={{ s.name|urlencode }}"
-        class="skill-tag border border-gray-300 px-3 py-1 inline-block">{{ s.name|upper }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  <p class="mt-6 text-[10px] tracking-[0.3em] text-gray-400" data-reveal style="--d: 420ms">
-    VISITORS {{ hit_count }}
-  </p>
+  {% endwith %}
 </section>
 
 <section aria-labelledby="work-title" class="max-w-5xl mx-auto px-4 sm:px-6 pb-20 sm:pb-24">
