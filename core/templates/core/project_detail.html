@@ -44,21 +44,23 @@
       <span class="text-gray-600 truncate max-w-full">{{ project.title|upper }}</span>
     </nav>
 
-    <header class="mt-8 sm:mt-10" data-reveal style="--d: 80ms">
-      <p class="text-[11px] tracking-[0.3em] text-gray-400">CASE STUDY · {{ project.year }}</p>
-      <h1 class="mt-4 text-3xl sm:text-4xl md:text-5xl font-light leading-tight break-words">{{ project.title }}</h1>
-      <p class="mt-4 max-w-2xl text-base sm:text-lg text-gray-500 leading-relaxed break-words">{{ project.summary }}</p>
-      {% if project.tech %}
-        <p class="mt-5 text-[10px] tracking-[0.2em] text-gray-400 break-words">{{ project.tech|upper }}</p>
-      {% endif %}
-    </header>
+    <div class="mt-8 sm:mt-10 grid gap-8 sm:gap-10{% if project.cover %} md:grid-cols-5 md:items-center{% endif %}">
+      <header class="{% if project.cover %}md:col-span-2{% endif %}" data-reveal="left" style="--d: 80ms">
+        <p class="text-[11px] tracking-[0.3em] text-gray-400">CASE STUDY · {{ project.year }}</p>
+        <h1 class="mt-4 text-3xl sm:text-4xl md:text-4xl font-light leading-tight break-words">{{ project.title }}</h1>
+        <p class="mt-4 max-w-2xl text-base sm:text-lg text-gray-500 leading-relaxed break-words">{{ project.summary }}</p>
+        {% if project.tech %}
+          <p class="mt-5 text-[10px] tracking-[0.2em] text-gray-400 break-words">{{ project.tech|upper }}</p>
+        {% endif %}
+      </header>
 
-    {% if project.cover %}
-      <div class="mt-8 sm:mt-10 bg-gray-100" data-reveal style="--d: 160ms">
-        <img src="{{ project.cover_card_url }}" alt="{{ project.title }} — {{ project.summary }}"
-             class="w-full h-auto" loading="eager" fetchpriority="high" decoding="async">
-      </div>
-    {% endif %}
+      {% if project.cover %}
+        <figure class="bg-gray-100 md:col-span-3" data-reveal="right" style="--d: 160ms">
+          <img src="{{ project.cover_card_url }}" alt="{{ project.title }} — {{ project.summary }}"
+               class="w-full h-auto" loading="eager" fetchpriority="high" decoding="async">
+        </figure>
+      {% endif %}
+    </div>
 
     <div class="mt-8 sm:mt-10 max-w-2xl text-gray-700 leading-relaxed space-y-4 break-words [overflow-wrap:anywhere] project-body" data-reveal style="--d: 200ms">
       {{ project.description|linebreaks }}
