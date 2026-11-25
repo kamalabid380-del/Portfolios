@@ -8,22 +8,24 @@
   <meta name="theme-color" content="#ffffff">
   <meta name="google-site-verification" content="VytN8YnHFgRrjx-LJlLWnyIk9MN99Jcs-F4BrZw4so0" />
 
-  <title>{% block title %}{{ profile.name|default:"Portfolio" }} — Python &amp; Django Web Developer{% endblock %}
+  <title>{% block title %}{{ profile.name|default:"Portfolio" }} — Shopify Developer &amp; Social Media Marketing Expert{% endblock %}
   </title>
-  <meta name="description" content="{% block description %}{{ profile.role|default:" Python and Django web developer" }}
-    based in {{ profile.location|default:"Lahore" }}. Custom websites and web apps."{% endblock %}">
+  <meta name="description" content="{% block description %}{{ profile.role|default:"Shopify Developer and Social Media Marketing Expert" }}
+    based in {{ profile.location|default:"Lahore" }}. Shopify stores and social media marketing."{% endblock %}">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
 
   <meta property="og:type" content="{% block og_type %}website{% endblock %}">
   <meta property="og:site_name" content="{{ profile.name|default:'Portfolio' }}">
   <meta property="og:title"
-    content="{% block og_title %}{{ profile.name|default:'Portfolio' }} — Python &amp; Django Web Developer{% endblock %}">
+    content="{% block og_title %}{{ profile.name|default:'Portfolio' }} — Shopify Developer &amp; Social Media Marketing Expert{% endblock %}">
   <meta property="og:description"
-    content="{% block og_description %}{{ profile.role|default:'Python and Django web developer' }}.{% endblock %}">
+    content="{% block og_description %}Shopify development and social media marketing for businesses that want to grow online.{% endblock %}">
   <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
-  {% block og_image %}{% endblock %}
+  <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'img/abid-kamal-logo.jpg' %}{% endblock %}">
+  <meta property="og:image:alt" content="{{ profile.name|default:'Abid Kamal' }} — Shopify Developer and Social Media Marketing Expert">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/abid-kamal-logo.jpg' %}">
 
   <link rel="icon" type="image/svg+xml" href="{% static 'img/favicon.svg' %}">
   <link rel="apple-touch-icon" href="{% static 'img/favicon-180.png' %}">
@@ -197,7 +199,9 @@
 
   <header class="border-b border-gray-200">
 
-    <a class="logo" href="{% url 'home' %}" aria-label="{{ profile.name|default:'Abid Kamal' }} — home">Abid Kamal</a>
+    <a class="logo" href="{% url 'home' %}" aria-label="{{ profile.name|default:'Abid Kamal' }} — home">
+      <img src="{% static 'img/abid-kamal-logo.jpg' %}" alt="{{ profile.name|default:'Abid Kamal' }} — Shopify Developer and Social Media Marketing Expert" width="2158" height="729">
+    </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
       <span></span><span></span><span></span>
       <span class="sr-only">Menu</span>

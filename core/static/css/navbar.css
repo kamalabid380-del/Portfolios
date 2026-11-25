@@ -1,6 +1,8 @@
 body > header{position:sticky;top:0;z-index:50;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px calc(2.5% + 20px);background:#fff}
-.logo{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;text-decoration:none;color:#111827;transition:color .3s ease,letter-spacing .3s ease}
-.logo:hover,.logo:focus-visible{color:#6b7280;letter-spacing:.26em;text-decoration:none}
+.logo{display:inline-block;text-decoration:none;color:#111827}
+.logo img{display:block;width:auto;height:46px}
+.logo:hover,.logo:focus-visible{text-decoration:none}
+.logo:hover img,.logo:focus-visible img{opacity:.82}
 .primary-nav ul{display:flex;flex-wrap:wrap;align-items:center;gap:30px;margin:0;padding:0;list-style:none}
 .primary-nav a{font-size:11px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:#111827;padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .3s ease,color .3s ease}
 .primary-nav a:hover,.primary-nav a:focus-visible{border-bottom-color:#111827}
@@ -10,6 +12,7 @@ body > header{position:sticky;top:0;z-index:50;width:100%;display:flex;align-ite
 .nav-toggle .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 @media (max-width:767px){
+  .logo img{height:36px}
   .nav-toggle{display:flex}
   .primary-nav{position:absolute;top:100%;left:0;right:0;display:none;padding:8px calc(2.5% + 20px) 20px;background:#fff;border-bottom:1px solid #e5e7eb;box-shadow:0 12px 24px -18px rgba(17,24,39,.35)}
   body > header.nav-open .primary-nav{display:block}
