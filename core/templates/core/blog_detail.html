@@ -5,7 +5,7 @@
 {% block description %}{{ post.excerpt|default:post.title }}{% endblock %}
 {% block og_type %}article{% endblock %}
 {% block og_title %}{{ post.title }}{% endblock %}
-{% block og_image %}{% if post.image_url %}<meta property="og:image" content="{{ post.image_url }}">{% else %}<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/abid-kamal-logo.jpg' %}">{% endif %}{% endblock %}
+{% block og_image %}{% if post.image_url %}<meta property="og:image" content="{% if 'http' in post.image_url %}{{ post.image_url }}{% else %}{{ request.scheme }}://{{ request.get_host }}{{ post.image_url }}{% endif %}">{% else %}<meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'img/abid-kamal-logo.jpg' %}">{% endif %}{% endblock %}
 
 {% block content %}
   <article class="max-w-3xl mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-20 sm:pb-24">
