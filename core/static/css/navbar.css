@@ -1,6 +1,6 @@
 body > header{position:sticky;top:0;z-index:50;width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px calc(2.5% + 20px);background:#fff}
 .logo{display:inline-block;text-decoration:none;color:#111827}
-.logo img{display:block;width:auto;height:46px}
+.logo img{display:block;width:auto;height:80px}
 .logo:hover,.logo:focus-visible{text-decoration:none}
 .logo:hover img,.logo:focus-visible img{opacity:.82}
 .primary-nav ul{display:flex;flex-wrap:wrap;align-items:center;gap:30px;margin:0;padding:0;list-style:none}
