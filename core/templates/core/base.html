@@ -189,7 +189,49 @@
         transform: scaleX(1);
       }
     }
-    #site-preloader.hide-preloader {
+/* PRELOADER */
+#site-preloader {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  z-index: 999999 !important;
+  background: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column !important;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#site-preloader img {
+  display: block;
+  width: 180px;
+  max-width: 65%;
+  height: auto;
+  animation: logoPulse 1.5s ease-in-out infinite;
+}
+
+#site-preloader .loader-spinner {
+  width: 32px;
+  height: 32px;
+  margin-top: 25px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #111827;
+  border-radius: 50%;
+  animation: loaderSpin 0.8s linear infinite;
+}
+
+#site-preloader p {
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #6b7280;
+}
+
+#site-preloader.hide-preloader {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -209,18 +251,7 @@
     animation: none;
   }
 }
-    #site-preloader {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  width: 100%;
-  height: 100vh;
-  background: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
+
   </style>
   <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
   <script>document.documentElement.className += ' js';</script>
