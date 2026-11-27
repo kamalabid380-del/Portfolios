@@ -209,6 +209,18 @@
     animation: none;
   }
 }
+    #site-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
   </style>
   <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
   <script>document.documentElement.className += ' js';</script>
