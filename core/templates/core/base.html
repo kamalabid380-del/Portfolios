@@ -259,14 +259,13 @@
 </head>
 
 <body class="bg-white text-gray-900 page-enter">
-  <div id="site-preloader" role="status" aria-label="Loading website">
+  <span class="loader">
   <img
     src="{% static 'img/abid-kamal-logo.jpg' %}"
     alt="Abid Kamal Logo"
   >
-  <div class="loader-spinner"></div>
-  <p>LOADING...</p>
-</div>
+  
+</span>
   <header class="border-b border-gray-200">
 
     <a class="logo" href="{% url 'home' %}" aria-label="{{ profile.name|default:'Abid Kamal' }} — home">
