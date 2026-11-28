@@ -417,32 +417,23 @@
     })();
   </script>
 
+
 <script>
 (function () {
   var loader = document.getElementById('site-preloader');
   if (!loader) return;
 
-  var hidden = false;
-
   function hideLoader() {
-    if (hidden) return;
-    hidden = true;
-
-    setTimeout(function () {
-      loader.classList.add('hide-preloader');
-    }, 400);
+    loader.classList.add('hide-preloader');
   }
 
-  if (document.readyState === 'complete') {
-    hideLoader();
-  } else {
-    window.addEventListener('load', hideLoader);
-  }
+  window.addEventListener('load', function () {
+    setTimeout(hideLoader, 1000);
+  }, { once: true });
 
-  // Safety fallback
-  setTimeout(hideLoader, 8000);
 })();
 </script>
+
 </body>
 
 </html>
